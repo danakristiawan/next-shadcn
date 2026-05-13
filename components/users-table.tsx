@@ -8,7 +8,8 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { getUsers } from "@/server/users"
-import { Button } from "./ui/button"
+import DeleteUserButton from "./delete-user-button"
+import UserForm from "./forms/user-form"
 
 export default async function UsersTable() {
   const users = await getUsers()
@@ -33,12 +34,8 @@ export default async function UsersTable() {
             <TableCell>{user.updatedAt.toLocaleString()}</TableCell>
             <TableCell>
               <div className="flex gap-1">
-                <Button variant="outline" size="sm">
-                  Edit
-                </Button>
-                <Button variant="outline" size="sm">
-                  Delete
-                </Button>
+                <UserForm user={user} />
+                <DeleteUserButton id={user.id} />
               </div>
             </TableCell>
           </TableRow>

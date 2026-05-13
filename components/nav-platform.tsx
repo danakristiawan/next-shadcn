@@ -34,12 +34,11 @@ export function NavPlatform({
     }[]
   }[]
 }) {
-
   const pathname = usePathname()
   const isActivePath = (pathname: string, url: string) => {
     return pathname === url || pathname.startsWith(url + "/")
   }
-  
+
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Platform</SidebarGroupLabel>
@@ -63,13 +62,10 @@ export function NavPlatform({
                 <SidebarMenuSub>
                   {item.items?.map((subItem) => (
                     <SidebarMenuSubItem key={subItem.title}>
-                      <SidebarMenuSubButton 
-                      asChild 
-                      isActive={isActivePath(pathname, subItem.url)}
-                      className="
-                        data-[active=true]:!bg-blue-500
-                        data-[active=true]:!text-white
-                      "
+                      <SidebarMenuSubButton
+                        asChild
+                        isActive={isActivePath(pathname, subItem.url)}
+                        className="data-[active=true]:!bg-blue-700 data-[active=true]:!text-white"
                       >
                         <Link href={subItem.url}>
                           <span>{subItem.title}</span>

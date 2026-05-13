@@ -18,21 +18,16 @@ export async function createUser(
   user: Omit<User, "id" | "createdAt" | "updatedAt">
 ) {
   try {
-    const newUser = await db.insert(users).values(user)
-    return newUser
+    await db.insert(users).values(user)
   } catch (error) {
     console.error("Error creating user:", error)
     throw new Error("Failed to create user")
   }
 }
 
-export async function updateUser(
-  id: string,
-  user: Omit<User, "id" | "createdAt" | "updatedAt">
-) {
+export async function updateUser(user: Omit<User, "createdAt" | "updatedAt">) {
   try {
-    const updatedUser = await db.update(users).set(user).where(eq(users.id, id))
-    return updatedUser
+    await db.update(users).set(user).where(eq(users.id, user.id))
   } catch (error) {
     console.error("Error updating user:", error)
     throw new Error("Failed to update user")
