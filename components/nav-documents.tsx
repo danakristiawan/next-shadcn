@@ -30,14 +30,12 @@ export function NavDocuments({
       <SidebarMenu>
         {items.map((item) => (
           <SidebarMenuItem key={item.name}>
-            <SidebarMenuButton 
-                tooltip={item.name} 
-                asChild 
-                isActive={isActivePath(pathname, item.url)}
-                className="
-                  data-[active=true]:!bg-blue-500
-                  data-[active=true]:!text-white
-                "  >
+            <SidebarMenuButton
+              tooltip={item.name}
+              asChild
+              isActive={isActivePath(pathname, item.url)}
+              className="data-[active=true]:!bg-blue-700 data-[active=true]:!text-white"
+            >
               <Link href={item.url}>
                 {item.icon}
                 <span>{item.name}</span>

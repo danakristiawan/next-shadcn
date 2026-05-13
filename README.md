@@ -22,7 +22,7 @@ import { Button } from "@/components/ui/button";
 
 node .next/standalone/server.js
 
-# Copy static files ke standalone
+## Copy static files ke standalone
 
 cp -r .next/static .next/standalone/.next/static
 cp -r public .next/standalone/public
