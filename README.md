@@ -19,3 +19,10 @@ To use the components in your app, import them as follows:
 ```tsx
 import { Button } from "@/components/ui/button";
 ```
+
+node .next/standalone/server.js
+
+# Copy static files ke standalone
+
+cp -r .next/static .next/standalone/.next/static
+cp -r public .next/standalone/public
